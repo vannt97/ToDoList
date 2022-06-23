@@ -89,9 +89,10 @@ export default function ToDoListRFC() {
   };
   const addTask = (e) => {
     e.preventDefault();
-    if (error.taskName === "") {
-      dispatch(addTaskApi(value.taskName));
+    if (error.taskName !== "" || value.taskName === "") {
+      return;
     }
+    dispatch(addTaskApi(value.taskName));
   };
   const handlerChange = (e) => {
     let { name, value } = e.target;
